@@ -9,13 +9,12 @@ function showPic(whichpic)
 	if(!document.getElementById("placeholder")) return false;
 	var source = whichpic.getAttribute("href");
 	var placeholder=document.getElementById("placeholder");
+	if(placeholder.nodeName != "IMG") return false;
 	placeholder.setAttribute("src",source);
 	if(document.getElementById("discription"))
 	{
 		var text = whichpic.getAttribute("title");
 		var discription = document.getElementById("discription");
-		//discription.innerHTML = text;
-		//console.log(discription.childNodes[0].nodeValue);
 		discription.firstChild.nodeValue = text;
 	}
 	return true;
@@ -50,7 +49,7 @@ function prepareGallery()
 	for(var i=0;i<links.length;i++)
 	{
 		links[i].onclick=function(){
-			return !showPic(this);
+			return !showPic(this);  //验证返回值，用来决定是否阻止默认行为
 		}
 	}
 
