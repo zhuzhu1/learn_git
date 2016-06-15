@@ -1,9 +1,3 @@
-
-// function popUp(winURL)
-// {
-// 	window.open(winURL,"popup","width=300,height=480");
-// }
-
 function showPic(whichpic)
 {
 	if(!document.getElementById("placeholder")) return false;
@@ -21,22 +15,23 @@ function showPic(whichpic)
 	
 }
 
-// window.onload=prepareLinks;
-// function prepareLinks()
-// {
-// 	if(!document.getElementsByTagName) return false;
-// 	var links = document.getElementsByTagName("a");
-// 	for(var i=0;i<links.length;i++)
-// 	{
-// 		if(links[i].getAttribute("class") == "popup")
-// 		{
-// 			links[i].onclick=function(){
-// 				popUp(this.getAttribute("href"));
-// 				return false;
-// 			}
-// 		}
-// 	}
-// }
+function preparePlaceholder()
+{
+	var imgNode = document.createElement("img");
+	imgNode.setAttribute("id","placeholder");
+	imgNode.setAttribute("src","images/fireworks.jpg");
+	imgNode.setAttribute("alt","my image gallery");
+	var pNode = document.createElement("p");
+	pNode.setAttribute("id","discription");
+
+	txt = document.createTextNode("choose an image");
+	pNode.appendChild(txt);
+
+	var gallery = document.getElementById("imagegallery");
+	gallery.parentNode.insertBefore(imgNode,gallery);
+	gallery.parentNode.insertBefore(pNode,gallery);
+
+}
 
 //window.onload=prepareGallery;
 function prepareGallery()
@@ -57,7 +52,7 @@ function prepareGallery()
 
 function addLoadEvent(func)
 {
-	//var oldonload = window.onload;
+	var oldonload = window.onload;
 	if(typeof window.onload != 'function')
 	{
 		window.onload = func;
@@ -65,10 +60,15 @@ function addLoadEvent(func)
 	else
 	{
 		window.onload = function(){
-			window.onload();
+			oldonload();
 			func();
 		}
 	}
 }
 
+addLoadEvent(preparePlaceholder);
 addLoadEvent(prepareGallery);
+// window.onload = function(){
+// 	preparePlaceholder();
+// 	prepareGallery();
+// }
