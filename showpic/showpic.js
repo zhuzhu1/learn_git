@@ -1,3 +1,32 @@
+
+function addLoadEvent(func)
+{
+	var oldonload = window.onload;
+	if(typeof window.onload != 'function')
+	{
+		window.onload = func;
+	}
+	else
+	{
+		window.onload = function(){
+			oldonload();
+			func();
+		}
+	}
+}
+
+function insertAfter(newElement,targetElement){
+	var parent = targetElement.parentNode;
+	if(parent.lastChild == targetElement)
+	{
+		parent.appendChild(newElement);
+	}
+	else
+	{
+		parent.insertBefore(newElement,targetElement.nextSibling);
+	}
+}
+
 function showPic(whichpic)
 {
 	if(!document.getElementById("placeholder")) return false;
@@ -17,6 +46,11 @@ function showPic(whichpic)
 
 function preparePlaceholder()
 {
+	if(!document.createElement) return false;
+	if(!document.createTextNode) return false;
+	if(!document.getElementById) return false;
+	if(!document.getElementById("imagegallery")) return false;
+
 	var imgNode = document.createElement("img");
 	imgNode.setAttribute("id","placeholder");
 	imgNode.setAttribute("src","images/fireworks.jpg");
@@ -28,12 +62,12 @@ function preparePlaceholder()
 	pNode.appendChild(txt);
 
 	var gallery = document.getElementById("imagegallery");
-	gallery.parentNode.insertBefore(imgNode,gallery);
-	gallery.parentNode.insertBefore(pNode,gallery);
+	insertAfter(imgNode,gallery);
+	insertAfter(pNode,imgNode);
 
 }
 
-//window.onload=prepareGallery;
+
 function prepareGallery()
 {
 	if(!document.getElementsByTagName || !document.getElementById) return false;
@@ -46,25 +80,12 @@ function prepareGallery()
 		links[i].onclick=function(){
 			return !showPic(this);  //验证返回值，用来决定是否阻止默认行为
 		}
+		links[i].onkeypress = links[i].onclick;
 	}
 
 }
 
-function addLoadEvent(func)
-{
-	var oldonload = window.onload;
-	if(typeof window.onload != 'function')
-	{
-		window.onload = func;
-	}
-	else
-	{
-		window.onload = function(){
-			oldonload();
-			func();
-		}
-	}
-}
+
 
 addLoadEvent(preparePlaceholder);
 addLoadEvent(prepareGallery);
