@@ -38,6 +38,7 @@ function getNextElement(node)
 		return getNextElement(node.nextSibling);
 	}
 	return null;
+	
 }
 
 window.onload = function(){
