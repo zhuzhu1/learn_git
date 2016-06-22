@@ -1,7 +1,7 @@
 function convertToGS(img)
 {
 	debugger;
-	//if(!Modernizr.canvas) return;
+	if(!Modernizr.canvas) return;
 	img.color = img.src;
 	img.grayscale = createGSCanvas(img);
 
