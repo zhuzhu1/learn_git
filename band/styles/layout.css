@@ -100,6 +100,32 @@ article img{
 	z-index: 99;
 }
 
-#imagegallery{
+#imagegallery li{
 	display: inline;
 }
+
+td{
+	padding: 0.5em 3em;
+}
+
+dl{
+	overflow: hidden;
+}
+
+
+dt{
+	float: left;
+}
+
+
+dd{
+	float: left;
+}
+
+label{
+	display: block;
+}
+fieldset{
+	border:0;
+}
+
