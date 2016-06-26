@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../jquery.js" type="text/javascript"></script>
+</head>
+<body>
+	 <ul>
+            <li>aa</li>
+            <li>bb</li>
+            <li>cc</li>
+            <li>dd</li>
+            <li id="lastdisplay">ee</li>
+            <li>ff</li>
+            <li>gg</li>
+            <li>hh</li>
+        </ul>
+        <a id="link" href="#">更多</a>
+        
+        <script>
+            function prepareShow()
+            {
+            	$("#lastdisplay~li").css("display","none");
+                $("#link").click(function()
+                {
+                    if($(this).html() == "更多")
+                    {
+                        $(this).html("简化");
+                        $("#lastdisplay~li").css("display","block");
+                    }
+                    else if($(this).html() == "简化")
+                    {
+                        $(this).html("更多");
+                        $("#lastdisplay~li").css("display","none");
+                    }
+                });
+
+            }
+
+            window.onload=prepareShow;
+        </script>
+</body>
+</html>
