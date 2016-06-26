@@ -414,15 +414,17 @@ function resetFields(whichform)
 
 function prepareForms()
 {
-	debugger;
+
 	for(var i = 0;i < document.forms.length;i++)
 	{
 		var thisform = document.forms[i];
 		resetFields(thisform);
 		thisform.onsubmit = function()
 		{
-			debugger;
-			return validateForm(this);
+			if(!validateForm(this)) return false;
+			var article = document.getElementsByTagName('article')[0];
+			if(submitFormWithAjax(this,article)) return false;
+			return true;
 		}
 	}
 }
@@ -441,7 +443,7 @@ function isEmail(field)
 }
 
 function validateForm(whichform){
-	debugger;
+
 	for(var i = 0;i < whichform.elements.length;i++)
 	{
 		var element = whichform.elements[i];
@@ -463,6 +465,85 @@ function validateForm(whichform){
 			}
 		}
 	}
+	return true;
+}
+
+
+function getHTTPObject()
+{
+	if(typeof XMLHttpRequest == "undefined")
+	{
+		XMLHttpRequest = function()
+		{
+			try{return new ActiveXObject("Msxml2.XMLHTTP.6.0");}
+			catch(e){}
+			try{return new ActiveXObject("Msxml2.XMLHTTP.3.0");}
+			catch(e){}
+			try{return new ActiveXObject("Msxml2.XMLHTTP");}
+			catch(e){}
+			return false;
+		}
+	}
+	return new XMLHttpRequest();
+
+}
+
+function displayAjaxLoading(element)
+{
+	while(element.hasChildNodes())
+	{
+		element.removeChild(element.lastChild);
+	}
+	var content = document.createElement("img");
+	content.setAttribute("src","images/loading.gif");
+	content.setAttribute("alt","Loading...");
+	element.appendChild(content);
+}
+
+
+function submitFormWithAjax(whichform,thetarget)
+{
+	debugger;
+	var request = getHTTPObject();
+	if(!request) return false;
+	displayAjaxLoading(thetarget);
+
+	var dataParts = [];
+	var element;
+	for(var i = 0;i < whichform.elements.length;i++)
+	{
+		element = whichform.elements[i];
+		dataParts[i] = element.name+'='+encodeURIComponent(element.name);
+
+	}
+	var data = dataParts.join('&');
+	request.open('POST',whichform.getAttribute("action"),true);
+	request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+
+	request.onreadystatechange = function()
+	{
+		if(request.readyState == 4)
+		{
+			if(request.status == 200 || request.status == 0)
+			{
+				var matches = request.responseText.match(/<article>([\s\S]+)<\/article>/);
+				if(matches.length > 0)
+				{
+					thetarget.innerHTML = matches[1];
+				}
+				else
+				{
+					thetarget.innerHTML = '<p>Oops, there was an error. Sorry.</p>';
+				}
+			}
+			else
+			{
+				thetarget.innerHTML = '<p>'+request.statusText+'</p>';
+			}
+		}
+	};
+
+	request.send(data);
 	return true;
 }
 
