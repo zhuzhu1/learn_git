@@ -1,0 +1,25 @@
+* {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    
+    body {
+        font-size: 12px;
+    }
+    
+    #menu {
+        width: 360px;
+        overflow: hidden;
+        margin: 100px auto;
+        border: 1px solid #BF9660;
+    }
+
+    #menu_con {
+        width: 358px;
+        height:160px;
+        border-top: none
+    }
+    a{
+        margin: 5px;
+    }

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../jquery.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="imooc.css">
+</head>
+<body>
+	 <!--代码部分begin-->
+    <div id="menu">
+        <!--tag标题-->
+        <div id="menu_con">
+            <div class="tag" style="display:block">
+                <dl>
+                    <dd>
+                        <p>第一类</p>
+                        <a>1.衬衫</a>
+                        <a>2.T恤</a>
+                        <a>3.牛仔裤</a>
+                        <a>4.休闲裤</a>
+                        <a>5.短裤</a>
+                        <a>5.针织衫</a>
+                        <a>7.西服</a>
+                        <a>8.西裤</a>
+                        <a>10.西服套装</a>
+                        <a>11.马甲/背心</a>
+                        <a name="setColor">12.羽绒服</a>
+                        <a>13.棉服</a>
+                        <a>14.夹克</a>
+                        <a>15.POLO衫</a>
+                        <a>16.卫衣</a>
+                        <a>17.卫裤/运动裤</a>
+                        <a>18.真皮皮衣</a>
+                        <a>19.仿皮皮衣</a>
+                        <a>20.风衣</a>
+                        <a>更多</a>
+                    </dd>
+                    <dd>
+                        <p>第二类</p>
+                        <a>1.衬衫</a>
+                        <a>2.T恤</a>
+                        <a>3.牛仔裤</a>
+                        <a>4.休闲裤</a>
+                        <a>5.短裤</a>
+                        <a>5.针织衫</a>
+                        <a>7.西服</a>
+                        <a>8.西裤</a>
+                        <a>10.西服套装</a>
+                        <a>11.马甲/背心</a>
+                        <a>12.羽绒服</a>
+                        <a>13.棉服</a>
+                        <a>14.夹克</a>
+                        <a>15.POLO衫</a>
+                        <a>更多</a>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript">
+        //找到每一个dd下面的一个p元素，并改变颜色
+        //可以通过子类选择器  p:first-child 筛选出每一个dd中的的第一个a元素
+        $("dd p:first-child").css('color','#9932CC');
+    </script>
+
+    <script type="text/javascript">
+        //把a元素从顺序1-5加上颜色
+        //可以通过基本筛选器lt,选择匹配集合中所有索引值小于给定index参数的元素
+        //注意了index是从0开始计算，所以选在1-5,为对应的index就是4
+        $("a:lt(4)").css('color','red');
+    </script>
+
+    <script type="text/javascript">
+        //在所有a元素中找到属性名name="setColor"的元素，并设置颜色
+        //这里用的属性选择器[attribute='value']选择指定属性是给定值的元素
+        $("a[name='setColor']").css('color','blue');
+    </script>
+
+    <script type="text/javascript">
+        //选中2个dd列表中第10个元素，并改变颜色
+        //这里用了nth-child 选择的他们所有父元素的第n个子元素
+        $("dd a:nth-child(10)").css('color','#66CD00');
+    </script>
+
+    <script type="text/javascript">
+        //找到把a元素中包含文字"更多"的节点，改变颜色
+        $("dd a:last-child").css('color','#C71585');
+    </script>
+    
+</body>
+</html>
