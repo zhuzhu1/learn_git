@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<select id="select1" name="select1" onchange="tt(this)">
+		<option value="">请选择</option>
+		<option>opt1</option>
+		<option>opt2</option>
+		<option>opt3</option>
+	</select>
+	<select id="select2" name="select2" onchange="tt(this)">
+		<option value="">请选择</option>
+		<option value="4">opt1</option>
+		<option value="5">opt2</option>
+		<option value="6">opt3</option>
+	</select>
+	<select id="select3" name="select3" onchange="tt(this)">
+		<option value="">请选择</option>
+		<option value="7">opt1</option>
+		<option value="8">opt2</option>
+		<option value="9">opt3</option>
+	</select>
+	<script>
+	function tt(obj) {
+	  //var aa = document.getElementById(id);
+	  console.log(obj);
+ 	  console.log(obj.selectedIndex);
+	  console.log(obj.value);
+	}
+	</script>
+</body>
+</html>
