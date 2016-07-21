@@ -24,7 +24,22 @@ function init()
       ulQueue.innerHTML = li;
       ulQueue.innerHTML += innerHtml;
       inputValue.value = "";
+      // var liNode = document.createElement("li");
+      // var liVal = document.createTextNode(inputValue.value);
+      // liNode.appendChild(liVal);
+
+      // appendFirstChild(ulQueue, liNode);
   };
+
+  function appendFirstChild(parent, newNode)
+  {
+      if(parent.childNodes.length == 0)
+      {
+          parent.appendChild(newNode);
+          return;
+      }
+      parent.insertBefore(newNode, parent.firstChild);
+  }
 
   var rightIn = document.getElementById("rightin");
   rightIn.onclick = function(){
@@ -35,13 +50,18 @@ function init()
       var li = "<li>" + inputValue.value + "</li>";
       ulQueue.innerHTML += li;
       inputValue.value = "";
+      
+      // var liNode = document.createElement("li");
+      // var liVal = document.createTextNode(inputValue.value);
+      // liNode.appendChild(liVal);
+
+      // ulQueue.appendChild(liNode);
   };
 
   var leftOut = document.getElementById("leftout");
   leftOut.onclick = function(){
     if(ulQueue.childNodes.length > 0)
     {
-      debugger;
       var delValue = ulQueue.firstChild.firstChild.nodeValue;
       ulQueue.removeChild(ulQueue.firstChild);
       alert("删除的数值为： " + delValue);
@@ -52,13 +72,19 @@ function init()
   rightOut.onclick = function(){
       if(ulQueue.childNodes.length > 0)
       {
-         debugger;
          var delValue = ulQueue.lastChild.firstChild.nodeValue;
          ulQueue.removeChild(ulQueue.lastChild);
          alert("删除的数值为： " + delValue);
       }
       
   };
+
+   ulQueue.addEventListener("click",function(event){
+      if(event.target.nodeName == "LI")
+      {
+          ulQueue.removeChild(event.target);
+      }
+   });
 }
 
 function checkInput(inputValue)
