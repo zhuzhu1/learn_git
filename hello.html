@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css"></style>
+</head>
+
+<body>
+	<input id="stop" type="button" value="stop">
+	<script type="text/javascript">
+
+		function a()
+		{
+			var i = 11;
+			var j = "aa";
+			var obj = {
+				i: 11,
+				j: "aa"
+			}
+			//setTimeout(b,2000,i,j);
+			var timeStamp = null;
+			timeStamp = window.setInterval(b,2000,obj);
+			var stopObj = document.getElementById("stop");
+			stopObj.onclick = function()
+			{
+				if(timeStamp != null)
+				{
+					window.clearInterval(timeStamp);
+				}
+			}
+		}
+		function b(obj)
+		{
+			console.log("bb");
+			console.log(obj.i);
+			obj.i++;
+			console.log(obj.j);
+		}
+
+		a();
+
+	</script>
+</body>
+</html>
