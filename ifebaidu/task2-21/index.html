@@ -1,0 +1,52 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 21</title>
+    <style type="text/css">
+        #interstInput{
+            width:200px;
+            height:200px;
+        }
+        #interstQueue,#tagQueue
+        {
+            padding-left: 0;
+            height:40px;
+        }
+
+        li{
+            list-style-type: none;
+            display: inline-block;
+            background-color: red;
+            color:white;
+            min-width:40px;
+            height:40px;
+            margin-right:5px;
+            text-align: center;
+            line-height: 40px;
+            cursor:pointer;
+        }
+    </style>
+  </head>
+<body>
+
+  <div>
+    <div>
+        Tag:<input id="tagInput" value="">
+    </div>
+    <ul id="tagQueue"></ul>
+  </div>
+
+  <div>
+    <div>
+        <textarea id="interstInput" value="" placeholder="允许一次批量输入多个内容，格式可以为数字、中文、英文等，可以通过用回车，逗号（全角半角均可），顿号，空格（全角半角、Tab等均可）等符号作为不同内容的间隔"></textarea>
+    </div>
+    <input id="interstConfirm" type="button" value="确认兴趣爱好">
+    <ul id="interstQueue"></ul>
+  </div>
+
+  
+
+  <script type="text/javascript" src="task.js"></script>
+</body>
+</html>
