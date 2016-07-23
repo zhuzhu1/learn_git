@@ -1,0 +1,58 @@
+
+div {
+    border:1px solid black;
+    background-color: white;
+}
+
+.blueColor{
+    background-color: blue;
+}
+
+#root {
+    height:200px;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+}
+
+.firstChild
+{
+    width:500px;
+    height:160px;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+}
+
+.secondChild
+{
+    min-width:80px;
+    height:120px;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+}
+
+.thirdChild
+{
+    min-width:35px;
+    height:80px;
+    margin: 2px;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+}
+
+.fourChild
+{
+    min-width:35px;
+    height:40px;
+    margin-right:5px;
+}
+
+
+#opt
+{
+    border:none;
+    margin-top:20px;
+}
