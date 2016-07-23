@@ -1,0 +1,44 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 20</title>
+    <style type="text/css">
+        #inputvalue{
+            width:200px;
+            height:200px;
+        }
+        #queue
+        {
+            padding-left: 0;
+        }
+        #queue li{
+            list-style-type: none;
+            display: inline-block;
+            background-color: red;
+            color:white;
+            width:40px;
+            height:40px;
+            margin-right:5px;
+            text-align: center;
+            line-height: 40px;
+            cursor:pointer;
+        }
+    </style>
+  </head>
+<body>
+  <div>
+    <textarea id="inputvalue" value="" placeholder="允许一次批量输入多个内容，格式可以为数字、中文、英文等，可以通过用回车，逗号（全角半角均可），顿号，空格（全角半角、Tab等均可）等符号作为不同内容的间隔"></textarea>
+    <input id="leftin" type="button" value="左侧入">
+    <input id="rightin" type="button" value="右侧入">
+    <input id="leftout" type="button" value="左侧出">
+    <input id="rightout" type="button" value="右侧出">
+    <input id="queryInput" value="">
+    <input id="queryBtn" type="button" value="查询">
+  </div>
+
+  <ul id="queue"></ul>
+
+  <script type="text/javascript" src="task.js"></script>
+</body>
+</html>
