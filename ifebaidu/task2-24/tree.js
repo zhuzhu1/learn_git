@@ -1,6 +1,9 @@
 //全局变量记得初始化，在前序遍历和后序遍历函数里也必须初始化
 var timeStamp = null;
 var isFind = false;
+var TRAVERSAL = "traversal";
+var SEARCH = "search";
+var selectedNode = [];
 
 function init()
 {
@@ -11,7 +14,7 @@ function init()
         var arr = [];
         isFind = false;
         preOrderTraversal(rootObj, arr);
-        show(arr);
+        show(arr, TRAVERSAL);
     };
 
     var afterOrderObj = document.getElementById("afterOrder");
@@ -19,7 +22,7 @@ function init()
         var arr = [];
         isFind = false;
         afterOrderTraversal(rootObj, arr);
-        show(arr);
+        show(arr, TRAVERSAL);
     };
 
     var queryInputObj = document.getElementById("queryInput");
@@ -29,8 +32,59 @@ function init()
         isFind = false;
         var inputValue = queryInputObj.value;
         preOrderQuery(rootObj, arr, inputValue);
-        show(arr);
+        show(arr, SEARCH);
+    };
+
+    //点击某个节点元素，则该节点元素呈现一个特殊被选中的样式
+    var divObjs = document.getElementsByTagName("div");
+    for(var i = 0, divslen = divObjs.length; i < divslen; i++)
+    {
+        divObjs[i].onclick = function(event){
+            debugger;
+            if(this.className.indexOf("selected") >= 0)
+            {
+                var className = removeClass(this.className, "selected");
+                this.className= className;
+                var index = selectedNode.indexOf(this);
+                if(index > -1)
+                {
+                    selectedNode.splice(index,1);
+                }
+            }
+            else
+            {
+                this.className += " selected";
+                selectedNode.push(this);
+            }
+            event.stopPropagation();
+        };
     }
+    //删除
+    var deleteObj = document.getElementById("delete");
+    deleteObj.onclick = function(){
+        for(var i = 0, len = selectedNode.length; i < len; i++)
+        {
+            if(selectedNode[i].parentNode != null)
+            {
+                selectedNode[i].parentNode.removeChild(selectedNode[i]);
+            }
+        }
+        selectedNode = [];
+    }
+
+    //添加
+    var addInputObj = document.getElementById("addInput");
+    var addBtnObj = document.getElementById("addBtn");
+    addBtnObj.onclick = function(){
+        for(var i = 0, len = selectedNode.length; i < len; i++)
+        {
+            var divNode = document.createElement("div");
+            var divVal = document.createTextNode(addInputObj.value);
+            divNode.appendChild(divVal);
+            selectedNode[i].appendChild(divNode);
+            
+        }
+    };
 }
 
 function preOrderTraversal(node, arr)
@@ -84,7 +138,7 @@ function afterOrderTraversal(node, arr)
     }
 }
 
-function show(arr)
+function show(arr, flag)
 {
     var indexObj = {
         i : 0
@@ -95,27 +149,16 @@ function show(arr)
         window.clearInterval(timeStamp);
     }
 
-    timeStamp = window.setInterval(animation, 500, arr, indexObj);
+    timeStamp = window.setInterval(animation, 500, arr, indexObj, flag);
 }
 
-function animation(arr, indexObj)
+function animation(arr, indexObj, flag)
 {
     for(var j = 0; j < arr.length; j++)
     {
         //arr[j].style.backgroundColor="white";
-        if(arr[j].className.trim() == "blueColor")
-        {
-            arr[j].className = "";
-        }
-        else
-        {
-            var spaceIndex = arr[j].className.indexOf(" ");
-            if(spaceIndex > 0)
-            {
-                var className = arr[j].className.substring(0,spaceIndex);
-                arr[j].className = className;
-            }
-        } 
+        var className = removeClass(arr[j].className, "blueColor");
+        arr[j].className = className;
     }
     if(indexObj.i == arr.length)
     {
@@ -130,13 +173,35 @@ function animation(arr, indexObj)
         }
         else
         {
-            alert("not found!");
+            if(flag == SEARCH)
+            {
+                alert("not found!");
+            }
+            
         }
         return;
     }
     //arr[indexObj.i].style.backgroundColor = "blue";
     arr[indexObj.i].className += " blueColor";
     indexObj.i++;
+}
+
+function removeClass(classStr, value)
+{
+    var className = "";
+    var arr = classStr.split(/\s+/);//以空格分割
+    for(var i = 0; i < arr.length; i++)
+    {
+        if(arr[i] != value)
+        {
+            if(className != "")
+            {
+                className += " ";
+            }
+            className += arr[i];
+        }
+    }
+    return className;
 }
 
 init();
