@@ -1,0 +1,40 @@
+
+div {
+    border:1px solid #ccc;
+    margin-left:30px;
+}
+span{
+    border:1px solid black;
+    cursor:pointer;
+    width:auto;
+    height: 20px;
+    line-height: 20px;
+    background-image: url(./add.png);
+    background-repeat: no-repeat;
+    background-size: 15px;
+    padding-left:30px;
+    
+}
+
+.hide{
+    display: none;
+    
+}
+
+.image{
+    background-image: url(./remove.png);
+}
+
+.blueColor{
+    background-color: blue;
+}
+
+.selected{
+    background-color: #FFC8B4;
+}
+
+
+#preOrder
+{
+    margin-top:20px;
+}
