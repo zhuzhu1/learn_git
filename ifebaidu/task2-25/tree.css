@@ -1,10 +1,11 @@
 
 div {
-    border:1px solid #ccc;
+   /* border:1px solid #ccc;*/
     margin-left:30px;
 }
 span{
-    border:1px solid black;
+    /*border:1px solid black;*/
+    color:black;
     cursor:pointer;
     width:auto;
     height: 20px;
@@ -26,11 +27,11 @@ span{
 }
 
 .blueColor{
-    background-color: blue;
+    color: blue;
 }
 
 .selected{
-    background-color: #FFC8B4;
+    color: #FFC8B4;
 }
 
 
