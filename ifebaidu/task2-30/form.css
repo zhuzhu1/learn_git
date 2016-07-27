@@ -1,0 +1,47 @@
+
+form{
+    margin:0 auto;
+    width:400px;
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+    overflow: auto;
+}
+label,input,button{
+    font-size: 20px;
+}
+
+.invalid{
+    color:red;
+}
+.invalidStyle{
+    border-color: red;
+}
+
+.valid{
+    color:green;
+}
+
+.validStyle{
+    border-color: green;
+}
+
+label{
+    display: inline-block;
+    text-align: right;
+    width:90px;
+}
+
+div{
+    margin-top:20px;
+}
+
+#submit{
+    margin-top:20px;
+    float:right;
+}
+
+span{
+    margin-left: 100px;
+    color:#696969;
+}
