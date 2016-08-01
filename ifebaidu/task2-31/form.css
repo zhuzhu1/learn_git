@@ -1,0 +1,33 @@
+
+form{
+    margin:0 auto;
+    width:400px;
+    height: 300px;
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+    overflow: auto;
+}
+label,input{
+    font-size: 20px;
+}
+
+label{
+    display: inline-block;
+    width:80px;
+}
+
+div{
+    margin-top:20px;
+}
+
+select
+{
+    width:130px;
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+#company{
+    width:250px;
+}
