@@ -1,0 +1,76 @@
+table{
+    border-collapse: collapse;
+}
+
+th{
+    border:1px solid grey;
+    width:30px;
+    height:30px;
+}
+
+
+
+.rownum{
+    border:none;
+    border-bottom:2px solid black;
+}
+
+.colnum{
+    border:none;
+    border-right:2px solid black;
+}
+
+.rowbottom{
+    border-bottom:2px solid black;
+}
+.colright{
+    border-right:2px solid black;
+}
+
+.ai{
+    border:none;
+}
+
+#div1{
+    background-color:red;
+    width: 30px;
+    height: 30px;
+    position: relative;
+}
+
+.div2up{
+    background-color:blue;
+    width: 30px;
+    height: 8px;
+    position: absolute;
+    top: 0px;
+}
+
+.div2down{
+    background-color:blue;
+    width: 30px;
+    height: 8px;
+    position: absolute;
+    bottom: 0px;
+}
+
+.div2left{
+    background-color:blue;
+    width: 8px;
+    height: 30px;
+    position: absolute;
+    left: 0px;
+}
+
+.div2right{
+    background-color:blue;
+    width: 8px;
+    height: 30px;
+    position: absolute;
+    right: 0px;
+}
+
+#go{
+    margin-left:30px;
+    margin-top:20px;
+}
