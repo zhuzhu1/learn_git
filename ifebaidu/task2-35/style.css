@@ -1,0 +1,90 @@
+table{
+    border-collapse: collapse;
+}
+
+th{
+    border:1px solid grey;
+    width:30px;
+    height:30px;
+}
+
+
+
+.rownum{
+    border:none;
+    border-bottom:2px solid black;
+}
+
+.colnum{
+    border:none;
+    border-right:2px solid black;
+}
+
+.rowbottom{
+    border-bottom:2px solid black;
+}
+.colright{
+    border-right:2px solid black;
+}
+
+.ai{
+    border:none;
+}
+
+#frame{
+    position: absolute;
+}
+
+#div1{
+    background-color:red;
+    width: 33px;
+    height: 33px;
+    position: absolute;
+    top:165px;
+    left:165px;
+}
+
+.div2up{
+    background-color:blue;
+    width: 33px;
+    height: 8px;
+    position: absolute;
+    top: 0px;
+}
+
+.div2down{
+    background-color:blue;
+    width: 33px;
+    height: 8px;
+    position: absolute;
+    bottom: 0px;
+}
+
+.div2left{
+    background-color:blue;
+    width: 8px;
+    height: 33px;
+    position: absolute;
+    left: 0px;
+}
+
+.div2right{
+    background-color:blue;
+    width: 8px;
+    height: 33px;
+    position: absolute;
+    right: 0px;
+}
+
+#go{
+    margin-left:30px;
+    margin-top:20px;
+}
+
+#inputarea{
+    width:328px;
+    height:120px;
+    margin-left:33px;
+    margin-top:20px;
+    background-color: black;
+}
