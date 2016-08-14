@@ -1,0 +1,9 @@
+#flow
+{
+    width:300px;
+    height:200px;
+    border:1px solid black;
+    position: fixed;
+    background-color: white;
+    cursor:pointer;
+}

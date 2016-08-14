@@ -81,10 +81,15 @@ th{
     margin-top:20px;
 }
 
+#button{
+    margin-left: 33px;
+    margin-top: 10px;
+}
 #inputarea{
     width:328px;
     height:120px;
     margin-left:33px;
-    margin-top:20px;
+    margin-top:10px;
     background-color: black;
+    color:green;
 }
