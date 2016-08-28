@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // function foo()
+        // {
+        //     console.log(this.a);
+        // }
+        // var obj = {
+        //     a:2,
+        //     foo:foo
+        // };
+
+        // obj.foo();
+
+        //-------------对象属性引用链中只有上一层在调用位置中起作用--------
+        // function foo()
+        // {
+        //     console.log(this.a);
+        // }
+
+        // var obj2 = {
+        //     a:32,
+        //     foo:foo
+        // };
+
+        // var obj1 = {
+        //     a:2,
+        //     obj2:obj2
+        // };
+
+        // obj1.obj2.foo();
+        
+
+        //--------------隐式丢失-------------------
+        function foo()
+        {
+            console.log(this.a);
+        }
+        var obj = {
+            a : 2,
+            foo :foo
+        };
+
+        var bar = obj.foo;//函数别名！
+        var a="oops,golbal";
+
+        bar();
+        obj.foo();
+    </script>
+</body>
+</html>

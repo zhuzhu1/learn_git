@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // function baz()
+        // {
+        //     console.log("baz");
+        //     bar();
+        // }
+        // function bar()
+        // {
+        //     console.log("bar");
+        //     foo();
+        // }
+        // function foo()
+        // {
+        //     debugger;
+        //     console.log("foo");
+        // }
+
+        // baz();
+        
+        //默认绑定
+        //在严格模式下调用foo则不影响默认绑定
+        function foo()
+        {
+            "use strict";
+
+            console.log(this.a);
+        }
+        var a = 2;
+        foo();
+    </script>
+</body>
+</html>
