@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <div></div>
+    <div></div>
+    <script type="text/javascript">
+    //一个意外的循环
+    function loop()
+    {
+        var alldivs = document.getElementsByTagName("div");
+        for(var i = 0;i < alldivs.length; i++)
+        {
+            console.log("--start--");
+            document.body.appendChild(document.createElement("div"));
+        }
+    }
+    //loop();
+    //
+    function loop()
+    {
+        var alldivs = document.getElementsByTagName("div");
+        var len = alldivs.length;
+        for(var i = 0;i < len; i++)
+        {
+            debugger;
+            console.log("--start--");
+            document.body.appendChild(document.createElement("div"));
+        }
+    }
+    loop();
+    </script>
+</body>
+</html>

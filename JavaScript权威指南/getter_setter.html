@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    var o = {
+        data_prop : 3,
+        get accessor_prop(){return this.data_prop;},
+        set accessor_prop(value){this.data_prop = value;}
+    }
+
+    console.log(o.accessor_prop);
+    o.accessor_prop = 55;
+    console.log(o.accessor_prop);
+    </script>
+</body>
+</html>

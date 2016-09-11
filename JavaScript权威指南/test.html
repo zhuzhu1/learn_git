@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    var s = "test";
+    s.len = 4;
+    var t = s.len;
+    console.log(t);
+
+    var s= "test", n = 1, b = true;
+    var S = new String(s);
+    var N = new Number(n);
+    var B = new Boolean(b);
+
+    console.log(typeof(s));
+    console.log(typeof(S));
+    S.len = 4;
+    var t0 = S.len;
+    console.log(t0);
+
+    console.log(typeof(n));
+    console.log(typeof(N));
+
+    console.log(typeof(b));
+    console.log(typeof(B));
+
+    var o = {x:1}, p = {x:1};
+    console.log(o == p);
+    console.log(o === p);
+    var a = [], b = [];
+    console.log(a == b);
+    console.log(a === b);
+
+    </script>
+</body>
+</html>
