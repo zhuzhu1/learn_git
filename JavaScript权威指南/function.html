@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    //如果想访问外部函数的this，需要将this的值保存在一个变量中
+    var o = {
+        m : function(){
+            var self = this;
+            console.log(self === o);
+            f();
+
+            function f(){
+                console.log(this);
+                console.log(self);
+            }
+        }
+    }
+
+    o.m();
+    </script>
+</body>
+</html>
